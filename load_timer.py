@@ -1,8 +1,8 @@
 from datetime import datetime
 from time import sleep
-import re
-
+ 
 LOG_FILE = 'c:\\program files (x86)\\grinding gear games\\path of exile\\logs\\client.txt'
+AREA_CHANGE_TEXT = 'Got Instance Details from login server'
 LOAD_AREA_TEXT = 'You have entered '
 LOAD_AREA_LEN = len(LOAD_AREA_TEXT)
 
@@ -25,10 +25,10 @@ while True:
     log_offset += len(log_data)
 
     # check if area load started
-    if 'Got Instance Details from login server' in log_data:
+    if AREA_CHANGE_TEXT in log_data:
         load_start_time = datetime.now()
     # check if area load finished
-    if 'You have entered ' in log_data and load_start_time:
+    if LOAD_AREA_TEXT in log_data and load_start_time:
         load_end_time = datetime.now()
         load_duration = load_end_time - load_start_time
         load_time = '{}.{}'.format(load_duration.seconds, round(load_duration.microseconds * 0.001))
