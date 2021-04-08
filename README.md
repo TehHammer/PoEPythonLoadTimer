@@ -4,7 +4,7 @@ Script to monitor load times in Path of Exile
 
 ### Usage
 
-Run via python, i.e. `python load_times.py`.
+Run via python, i.e. `python load_timer.py`.
 
 When an area change occurs, the script will print a console message that shows the area that was loaded and the time it took to load.
 
